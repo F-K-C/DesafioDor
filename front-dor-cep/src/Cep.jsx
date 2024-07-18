@@ -27,11 +27,20 @@ function Cep() {
         setCep(event.target.value)
     }
 
+    const submitHandler = (e) => {
+        e.preventDefault()
+    }
+
     return (
-        <>
+        <><div className="container">
             <h1>Digite o CEP abaixo</h1>
-            <input type="text" onChange={handleInputChange} />
-            <button onClick={getAddress}>Enviar</button>
+            <form onSubmit={submitHandler}>
+                <div className="form-group">
+                    <input type="text" name='tracking' className="form-control" onChange={handleInputChange} />
+                </div>
+                <button type="submit" name='trackCEP' className="btn btn-primary" onClick={getAddress}>Enviar</button>
+            </form>
+        </div>
 
             {
                 error ? (
@@ -45,7 +54,7 @@ function Cep() {
                         <p><strong>Cep: </strong> {address.code} </p>
                     </div>
                 ) : null
-        }
+            }
         </>
     )
 }
