@@ -10,7 +10,7 @@ const Cep = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3001/buscar-endereco', {
+            const response = await fetch('https://desafiodor.onrender.com/buscar-endereco', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
