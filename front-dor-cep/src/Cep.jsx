@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import './Styles/Cep.css'
 //
 function Cep() {
     const [cep, setCep] = useState('')
@@ -34,28 +35,29 @@ function Cep() {
 
     return (
         <><div className="container">
-            <h1>Digite o CEP abaixo</h1>
+            <h1 className="texto">Digite o CEP abaixo</h1>
+
             <form onSubmit={submitHandler}>
                 <div className="form-group">
                     <input type="text" name='tracking' className="form-control" onChange={handleInputChange} />
+                    <button type="submit" name='trackCEP' className="btn-btn-primary" onClick={getAddress}>Enviar</button>
                 </div>
-                <button type="submit" name='trackCEP' className="btn btn-primary" onClick={getAddress}>Enviar</button>
             </form>
-        </div>
-
             {
                 error ? (
                     <p>{error}</p>
                 ) : address ? (
-                    <div>
-                        <p><strong>Rua: </strong> {address.address} </p>
-                        <p><strong>Bairro: </strong> {address.district} </p>
-                        <p><strong>Cidade: </strong> {address.city} </p>
-                        <p><strong>Estado: </strong> {address.state} </p>
-                        <p><strong>Cep: </strong> {address.code} </p>
+                    <div className="list-group">
+                        <br></br>
+                        <li className="list-group-item"><strong>Rua: </strong> {address.address}</li>
+                        <li className="list-group-item"><strong>Bairro: </strong> {address.district}</li>
+                        <li className="list-group-item"><strong>Cidade: </strong> {address.city}</li>
+                        <li className="list-group-item"><strong>Estado: </strong> {address.state}</li>
+                        <li className="list-group-item"><strong>Cep: </strong> {address.code}</li>
                     </div>
                 ) : null
             }
+        </div>
         </>
     )
 }
