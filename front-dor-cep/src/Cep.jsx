@@ -40,7 +40,7 @@ function Cep() {
             <form onSubmit={submitHandler}>
                 <div className="form-group">
                     <input type="text" name='tracking' className="form-control" onChange={handleInputChange} />
-                    <button type="submit" name='trackCEP' className="btn-btn-primary" onClick={getAddress}>Enviar</button>
+                    <button type="submit" name='trackCEP' className="btn btn-primary" onClick={getAddress}>Enviar</button>
                 </div>
             </form>
             {
